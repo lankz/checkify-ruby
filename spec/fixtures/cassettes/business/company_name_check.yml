@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/company-name?name=Bunnings%20Group%20Limited
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:56:39 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '21'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=36AnSSibC%2F4%2FZP23f8PLpqTLSr7BwpAZLwxhy0xljRROyIIPjCK3eJVAbyuBwsYjl59Elf75XTWoyMOmQdEjYX1Rtk3bEWzb256ptYVDtI12ZrQOCBfSFh8Q3DEBzJWdAuQ%3D"}]}'
+      Cf-Ray:
+      - a3619e592c955c31-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"name":"BUNNINGS GROUP LIMITED","availability":"Unavailable","shortDescription":"BUNNINGS
+        GROUP LIMITED is unavailable.","objections":["IDENTICAL TO AN ALREADY REGISTERED
+        CORPORATION - Australian Public Company BUNNINGS GROUP LIMITED ACN 008 672
+        179"],"existingBusinessName":false}'
+  recorded_at: Sat, 05 Sep 2026 01:56:39 GMT
+recorded_with: VCR 6.4.0

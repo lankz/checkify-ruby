@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/email?email=person@example.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:54:12 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '25'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=R00sClsUyFQJMi3eGstZ0vQs%2BlTgak2JvxynHBVPX2CTUyOVqfy4bPCX8VW62w6OcKm9L7q198yYs1SpO%2BHywGwsOZulOYLtypluR75iU41sm4nkl07KweJQ%2BKXgyl3SX8Q%3D"}]}'
+      Cf-Ray:
+      - a3619ac7b91efdfd-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"email":"person@example.com","valid":true,"format":{"valid":true,"account":"person","domain":"example.com"},"dns":{"valid":true},"deliverable":false,"canConnectSmtp":false,"inboxFull":null,"disabled":null,"catchAll":null,"score":0.48,"free":true,"disposable":false,"role":false}'
+  recorded_at: Sat, 05 Sep 2026 01:54:12 GMT
+recorded_with: VCR 6.4.0

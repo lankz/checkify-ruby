@@ -1,0 +1,133 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/autocomplete?country=nz&query=1%20queen%20street%20auckland
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:56:14 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '27'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=r7rOPHy90MowXXNhVQP%2FiVAtKwijqHWQiLuovyuIRlq4gIDoOpVVL8FzNjLWH5XyITwbfK7nxtXaTt%2BICEPp6DIMVJcyVzKeadRYPG4q5G6OoDXtQey0PS3Jhuh2oTsoXIs%3D"}]}'
+      Cf-Ray:
+      - a3619dc2ef575c31-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"NZ2087744":"2301\/<strong>171<\/strong> <strong>Queen<\/strong> <strong>Street<\/strong>,
+        <strong>Auckland<\/strong> Central, <strong>Auckland<\/strong>","NZ3081514":"419\/<strong>105<\/strong>
+        <strong>Queen<\/strong> <strong>Street<\/strong>, <strong>Auckland<\/strong>
+        Central, <strong>Auckland<\/strong>","NZ1131936":"<strong>1<\/strong> <strong>Queen<\/strong>
+        <strong>Street<\/strong>, <strong>Auckland<\/strong> Central, <strong>Auckland<\/strong>","NZ251477":"<strong>186<\/strong>
+        <strong>Queen<\/strong> <strong>Street<\/strong>, <strong>Auckland<\/strong>
+        Central, <strong>Auckland<\/strong>","NZ251548":"<strong>198<\/strong> <strong>Queen<\/strong>
+        <strong>Street<\/strong>, <strong>Auckland<\/strong> Central, <strong>Auckland<\/strong>","NZ1091755":"<strong>170<\/strong>-<strong>174<\/strong>
+        <strong>Queen<\/strong> <strong>Street<\/strong>, Northcote Point, <strong>Auckland<\/strong>","NZ1091756":"<strong>176<\/strong>
+        <strong>Queen<\/strong> <strong>Street<\/strong>, Northcote Point, <strong>Auckland<\/strong>","NZ1091768":"<strong>180<\/strong>
+        <strong>Queen<\/strong> <strong>Street<\/strong>, Northcote Point, <strong>Auckland<\/strong>","NZ1091769":"<strong>182<\/strong>
+        <strong>Queen<\/strong> <strong>Street<\/strong>, Northcote Point, <strong>Auckland<\/strong>","NZ1091770":"<strong>183<\/strong>
+        <strong>Queen<\/strong> <strong>Street<\/strong>, Northcote Point, <strong>Auckland<\/strong>"}'
+  recorded_at: Sat, 05 Sep 2026 01:56:14 GMT
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/autocomplete-details?country=nz&id=NZ2087744
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:56:16 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '26'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=0tetI2iE4kDmeKpSabs1gtcBSDnMABxCFI03P3BjZjyW9qMsxG8PuLUfALGXOnUIcdj9jZ1iHfHkyDtsZ7Qy5NJyjZ32vsod8IcNJx1wz2wGhR4y7Wf3jliiEZQYuc%2Bfhzg%3D"}]}'
+      Cf-Ray:
+      - a3619dd45c555c31-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"unit":"2301","level":null,"unitLevel":"2301","streetNumber":"171","streetName":"Queen","streetType":"Street","street":"171
+        Queen Street","city":"Auckland Central","postcode":"1010","state":null,"stateFull":null,"region":"Auckland","country":"NZ","countryFull":"New
+        Zealand","latitude":-36.84789048,"longitude":174.76479675,"meshBlockCode":null,"buildingName":null}'
+  recorded_at: Sat, 05 Sep 2026 01:56:17 GMT
+recorded_with: VCR 6.4.0

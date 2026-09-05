@@ -1,0 +1,1373 @@
+openapi: 3.0.3
+info:
+  title: Checkify API
+  description: >-
+    Australian and New Zealand address validation, business lookups, identity
+    checks, and communication validation through a single REST interface.
+  version: "1.0.0"
+  contact:
+    name: Checkify
+    url: https://checkify.com.au
+  x-logo:
+    url: https://checkify.com.au/logo.png
+
+servers:
+  - url: https://checkify.com.au/api/v1
+    description: Production
+
+security:
+  - BearerAuth: []
+
+tags:
+  - name: Account
+    description: Plan, usage, and billing information
+  - name: Address
+    description: Address autocomplete, reverse geocode, suburb, and postcode lookups
+  - name: Business
+    description: ABN, ACN, company/business name availability, and activity search
+  - name: Identity
+    description: Sanctions screening, Director ID, and TFN validation
+  - name: Communication
+    description: Email and phone validation
+  - name: Batch
+    description: Asynchronous bulk processing
+
+paths:
+  /account:
+    get:
+      operationId: getAccount
+      summary: Get account details
+      description: >
+        Returns your current plan, unit usage, billing period, subscription
+        status, and a per-endpoint breakdown of API calls for the current
+        period. Costs 0 units. Usage breakdown is cached for 5 minutes.
+      tags: [Account]
+      responses:
+        "200":
+          description: Account details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Account"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /autocomplete:
+    get:
+      operationId: autocomplete
+      summary: Address autocomplete
+      description: >
+        Type-ahead address search across 17.8 M+ Australian and New Zealand
+        addresses. Returns a map of address IDs to highlighted HTML strings.
+        Costs 0 units.
+      tags: [Address]
+      parameters:
+        - name: query
+          in: query
+          required: true
+          description: Search term, min 3 characters
+          schema:
+            type: string
+            minLength: 3
+        - $ref: "#/components/parameters/Country"
+      responses:
+        "200":
+          description: Map of address IDs to highlighted HTML strings
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+              example:
+                CKNSW717780562: "<strong>1</strong> <strong>Smith</strong> <strong>St</strong>reet, SYDNEY NSW 2000"
+                CKNSW718422105: "<strong>1</strong> <strong>Smith</strong> Rd, MARRICKVILLE NSW 2204"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /autocomplete-details:
+    get:
+      operationId: autocompleteDetails
+      summary: Address details
+      description: >
+        Fetch the full structured record for an address ID returned by
+        /autocomplete. Costs 1 unit.
+      tags: [Address]
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: Address ID from /autocomplete
+          schema:
+            type: string
+        - $ref: "#/components/parameters/Country"
+      responses:
+        "200":
+          description: Full structured address record
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AddressDetails"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /reverse:
+    get:
+      operationId: reverseGeocode
+      summary: Reverse geocode
+      description: >
+        Find the nearest address(es) to a coordinate pair. Results are ordered
+        by distance. Costs 1 unit.
+      tags: [Address]
+      parameters:
+        - name: lat
+          in: query
+          required: true
+          description: "Latitude (AU: −44 to −9, NZ: −47 to −34)"
+          schema:
+            type: number
+            format: double
+        - name: lng
+          in: query
+          required: true
+          description: "Longitude (AU: 112–155, NZ: 166–178)"
+          schema:
+            type: number
+            format: double
+        - name: radius
+          in: query
+          required: false
+          description: Search radius in metres (1–5000, default 100)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 5000
+            default: 100
+        - name: limit
+          in: query
+          required: false
+          description: Max results (1–10, default 1)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 10
+            default: 1
+        - $ref: "#/components/parameters/Country"
+      responses:
+        "200":
+          description: Array of nearby addresses ordered by distance
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ReverseResult"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /autocomplete-suburb:
+    get:
+      operationId: autocompleteSuburb
+      summary: Suburb autocomplete
+      description: >
+        Search for suburbs and localities across Australia and New Zealand.
+        Returns a map of locality IDs to highlighted strings. Costs 0 units.
+      tags: [Address]
+      parameters:
+        - name: query
+          in: query
+          required: true
+          description: Search term, min 2 characters
+          schema:
+            type: string
+            minLength: 2
+        - $ref: "#/components/parameters/Country"
+      responses:
+        "200":
+          description: Map of locality IDs to highlighted HTML strings
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+              example:
+                NSW3805: "<strong>Par</strong>ramatta NSW 2150"
+                NSW3806: "<strong>Par</strong>kes NSW 2870"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /autocomplete-suburb-details:
+    get:
+      operationId: autocompleteSuburbDetails
+      summary: Suburb details
+      description: >
+        Get full details for a locality ID returned by /autocomplete-suburb.
+        Costs 1 unit. For NZ results, state/stateFull are null; use region
+        instead. NZ localities return postcode: null.
+      tags: [Address]
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: Locality ID from /autocomplete-suburb
+          schema:
+            type: string
+        - $ref: "#/components/parameters/Country"
+      responses:
+        "200":
+          description: Full suburb/locality record
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuburbDetails"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /postcode:
+    get:
+      operationId: postcodeLookup
+      summary: Postcode lookup
+      description: >
+        Look up all suburbs and localities that belong to a postcode. Returns
+        up to 50 results ordered alphabetically. Costs 1 unit.
+      tags: [Address]
+      parameters:
+        - name: postcode
+          in: query
+          required: true
+          description: 4-digit postcode
+          schema:
+            type: string
+            pattern: '^\d{4}$'
+        - $ref: "#/components/parameters/Country"
+      responses:
+        "200":
+          description: Array of localities for the postcode
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PostcodeResult"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /business-activity:
+    get:
+      operationId: businessActivity
+      summary: Business activity search
+      description: >
+        Search over 9,000 Australian business activities and industry
+        classifications (ANZSIC codes) with fuzzy matching, misspelling
+        correction, and relevance scoring. Costs 0 units.
+      tags: [Business]
+      parameters:
+        - name: search
+          in: query
+          required: true
+          description: Search query, min 3 characters
+          schema:
+            type: string
+            minLength: 3
+        - name: limit
+          in: query
+          required: false
+          description: Max results (1–100, default 25)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 25
+      responses:
+        "200":
+          description: Matching business activities
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BusinessActivityResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /abn:
+    get:
+      operationId: abnLookup
+      summary: ABN lookup
+      description: >
+        Validate an Australian Business Number and retrieve registered business
+        details from the ABR. Costs 1 unit.
+      tags: [Business]
+      parameters:
+        - name: abn
+          in: query
+          required: true
+          description: 11-digit ABN — spaces accepted
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ABN details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AbnResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /acn:
+    get:
+      operationId: acnLookup
+      summary: ACN lookup
+      description: >
+        Validate an Australian Company Number and retrieve registered company
+        details from ASIC, including entity name, type, registration dates,
+        addresses, former names, and recent documents. Costs 1 unit.
+      tags: [Business]
+      parameters:
+        - name: acn
+          in: query
+          required: true
+          description: 9-digit ACN — spaces accepted
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ACN details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AcnResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /company-name:
+    get:
+      operationId: companyNameCheck
+      summary: Company name availability
+      description: >
+        Check whether a proposed company name is available for registration
+        with ASIC. Costs 1 unit.
+      tags: [Business]
+      parameters:
+        - name: name
+          in: query
+          required: true
+          description: Proposed company name (max 200 characters)
+          schema:
+            type: string
+            maxLength: 200
+      responses:
+        "200":
+          description: Name availability result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NameAvailability"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /business-name:
+    get:
+      operationId: businessNameCheck
+      summary: Business name availability
+      description: >
+        Check whether a proposed business (trading) name is available for
+        registration with ASIC. Costs 1 unit.
+      tags: [Business]
+      parameters:
+        - name: name
+          in: query
+          required: true
+          description: Proposed business name (max 200 characters)
+          schema:
+            type: string
+            maxLength: 200
+      responses:
+        "200":
+          description: Name availability result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NameAvailability"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /sanctions-screening:
+    get:
+      operationId: sanctionsScreening
+      summary: Sanctions screening
+      description: >
+        Screen an individual or entity name against 11 sanctions and debarment
+        lists including DFAT, UN, OFAC SDN, EU, UK OFSI, Canada, New Zealand,
+        France, Hong Kong, World Bank, and IDB. Costs 3 units.
+      tags: [Identity]
+      parameters:
+        - name: name
+          in: query
+          required: true
+          description: Full name to screen (3–200 characters)
+          schema:
+            type: string
+            minLength: 3
+            maxLength: 200
+        - name: birth_year
+          in: query
+          required: false
+          description: Year of birth (1900–2008) — boosts confidence if matched
+          schema:
+            type: integer
+            minimum: 1900
+            maximum: 2008
+        - name: country
+          in: query
+          required: false
+          description: ISO 3166-1 alpha-2 country code — boosts confidence if matched
+          schema:
+            type: string
+            pattern: '^[A-Z]{2}$'
+        - name: city
+          in: query
+          required: false
+          description: City of birth (max 200 characters) — fuzzy-compared for confidence boost
+          schema:
+            type: string
+            maxLength: 200
+      responses:
+        "200":
+          description: Sanctions screening results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SanctionsResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /director-id:
+    get:
+      operationId: directorIdValidation
+      summary: Director ID validation
+      description: >
+        Validate the format and checksum of an Australian Director
+        Identification Number using the official ABRS Damm algorithm.
+        Structural check only — no live ABRS registry lookup. Costs 1 unit.
+      tags: [Identity]
+      parameters:
+        - name: director_id
+          in: query
+          required: true
+          description: 15-digit Director ID starting with 036 — spaces accepted
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Valid Director ID
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DirectorIdResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /tfn:
+    get:
+      operationId: tfnValidation
+      summary: TFN validation
+      description: >
+        Validate the format and checksum of an Australian Tax File Number.
+        Structural check only — no live ATO registry lookup. Costs 1 unit.
+      tags: [Identity]
+      parameters:
+        - name: tfn
+          in: query
+          required: true
+          description: 8 or 9-digit TFN — spaces and hyphens accepted
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Valid TFN
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TfnResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /email:
+    get:
+      operationId: emailValidation
+      summary: Email validation
+      description: >
+        Validate an email address — checks RFC format, DNS/MX records, SMTP
+        deliverability, disposable/free/role detection, and quality score.
+        Costs 1 unit.
+      tags: [Communication]
+      parameters:
+        - name: email
+          in: query
+          required: true
+          description: Email address to validate (max 254 characters)
+          schema:
+            type: string
+            format: email
+            maxLength: 254
+      responses:
+        "200":
+          description: Email validation result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmailResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /phone:
+    get:
+      operationId: phoneValidation
+      summary: Phone validation
+      description: >
+        Validate and normalise a phone number. Detects country, returns E.164 /
+        national / international formats, line type, carrier, and location.
+        Defaults to AU parsing. Costs 1 unit.
+      tags: [Communication]
+      parameters:
+        - name: phone
+          in: query
+          required: true
+          description: Phone number to validate — include country code or use the country hint
+          schema:
+            type: string
+        - name: country
+          in: query
+          required: false
+          description: ISO 3166-1 alpha-2 country code hint for local numbers (default AU)
+          schema:
+            type: string
+            default: AU
+      responses:
+        "200":
+          description: Phone validation result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PhoneResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /bulk:
+    post:
+      operationId: createBulkJob
+      summary: Create bulk job
+      description: >
+        Submit a batch of records for asynchronous processing. Supports ABN,
+        ACN, TFN, Director ID, Email, Phone, Reverse Geocode, Address
+        Validation, and Sanctions Screening. Each row consumes the same units
+        as a single API call. Business & Enterprise plans only.
+      tags: [Batch]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BulkCreateRequest"
+          multipart/form-data:
+            schema:
+              type: object
+              required: [endpoint, file]
+              properties:
+                endpoint:
+                  type: string
+                  enum:
+                    - address-validation
+                    - reverse
+                    - abn
+                    - acn
+                    - sanctions-screening
+                    - tfn
+                    - director-id
+                    - email
+                    - phone
+                file:
+                  type: string
+                  format: binary
+                  description: CSV file with headers matching the required fields
+      responses:
+        "201":
+          description: Bulk job created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BulkJob"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /bulk/{id}:
+    get:
+      operationId: getBulkJob
+      summary: Get bulk job status
+      description: Check the status of a bulk processing job.
+      tags: [Batch]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Bulk job status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BulkJob"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /bulk/{id}/download:
+    get:
+      operationId: downloadBulkResults
+      summary: Download bulk results
+      description: Download the completed bulk job results as CSV.
+      tags: [Batch]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: CSV file download
+          content:
+            text/csv:
+              schema:
+                type: string
+                format: binary
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: >
+        Pass a public (ck_pub_...) or private (ck_prv_...) token. Public tokens
+        are domain-restricted for browser use. Private tokens are for
+        server-side use only.
+
+  parameters:
+    Country:
+      name: country
+      in: query
+      required: false
+      description: "Country dataset: au (default) or nz"
+      schema:
+        type: string
+        enum: [au, nz]
+        default: au
+
+  responses:
+    Unauthorized:
+      description: Missing or invalid token
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: "Missing or invalid token"
+
+    NotFound:
+      description: Record not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: "Address not found"
+
+    ValidationError:
+      description: Validation error (bad params)
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: "query must be at least 3 characters"
+
+    RateLimited:
+      description: Rate limit exceeded
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: "Rate limit exceeded"
+
+  schemas:
+    Error:
+      type: object
+      description: >-
+        Errors may contain a single error string, or a message and field-level
+        errors for request validation. Both forms are returned by production.
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+
+    Account:
+      type: object
+      properties:
+        plan:
+          type: string
+          enum: [free, starter, business, enterprise]
+        plan_name:
+          type: string
+        status:
+          type: string
+          enum: [free, active, cancelling, cancelled, past_due, incomplete]
+        cancels_at:
+          type: string
+          format: date
+          nullable: true
+          description: ISO 8601 date when subscription ends (only when status is cancelling)
+        units_used:
+          type: integer
+        units_limit:
+          type: integer
+        units_remaining:
+          type: integer
+        period_start:
+          type: string
+          format: date
+        period_end:
+          type: string
+          format: date
+        usage:
+          type: object
+          additionalProperties:
+            type: integer
+          description: Per-endpoint call counts for the current period
+
+    AddressDetails:
+      type: object
+      properties:
+        unit:
+          type: string
+          nullable: true
+          description: Flat/unit number and type
+        level:
+          type: string
+          nullable: true
+          description: Floor/level descriptor
+        unitLevel:
+          type: string
+          nullable: true
+          description: Combined unit and level
+        streetNumber:
+          type: string
+          description: House/lot number
+        streetName:
+          type: string
+          description: Street name only
+        streetType:
+          type: string
+          description: Street type code (ST, RD, AVE…)
+        street:
+          type: string
+          description: Number + full street name combined
+        city:
+          type: string
+          description: Locality/suburb name
+        postcode:
+          type: string
+          description: 4-digit postcode
+        state:
+          type: string
+          nullable: true
+          description: State abbreviation (NSW, VIC…) — AU only
+        stateFull:
+          type: string
+          nullable: true
+          description: Full state name — AU only
+        region:
+          type: string
+          nullable: true
+          description: Region/city (e.g. Auckland) — NZ only
+        country:
+          type: string
+          description: Country code (AU or NZ)
+        countryFull:
+          type: string
+          description: Full country name
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        longitude:
+          type: number
+          format: double
+          nullable: true
+        meshBlockCode:
+          type: string
+          nullable: true
+          description: ABS Mesh Block identifier — AU only
+        buildingName:
+          type: string
+          nullable: true
+          description: Named building or complex — AU only
+
+    ReverseResult:
+      type: object
+      properties:
+        addressId:
+          type: string
+        addressFull:
+          type: string
+        unit:
+          type: string
+          nullable: true
+        streetNumber:
+          type: string
+        street:
+          type: string
+        city:
+          type: string
+        postcode:
+          type: string
+        state:
+          type: string
+          nullable: true
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        distanceMetres:
+          type: number
+          format: double
+
+    SuburbDetails:
+      type: object
+      properties:
+        city:
+          type: string
+        postcode:
+          type: string
+          nullable: true
+          description: 4-digit postcode (null for NZ)
+        state:
+          type: string
+          nullable: true
+          description: State abbreviation — AU only
+        stateFull:
+          type: string
+          nullable: true
+          description: Full state name — AU only
+        region:
+          type: string
+          nullable: true
+          description: Region/city — NZ only
+        country:
+          type: string
+        countryFull:
+          type: string
+
+    PostcodeResult:
+      type: object
+      properties:
+        localityId:
+          type: string
+        city:
+          type: string
+        postcode:
+          type: string
+        state:
+          type: string
+          nullable: true
+        stateFull:
+          type: string
+          nullable: true
+        country:
+          type: string
+        countryFull:
+          type: string
+
+    BusinessActivityResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        count:
+          type: integer
+        activities:
+          type: array
+          items:
+            $ref: "#/components/schemas/BusinessActivity"
+
+    BusinessActivity:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Unique activity identifier
+        industryCode:
+          type: string
+          description: ANZSIC industry classification code
+        fullName:
+          type: string
+          description: Business activity description
+
+    AbnResponse:
+      type: object
+      properties:
+        abn:
+          type: string
+        abnFormatted:
+          type: string
+        acn:
+          type: string
+          nullable: true
+        acnFormatted:
+          type: string
+          nullable: true
+        entityName:
+          type: string
+        entityType:
+          type: string
+        abnDetails:
+          type: object
+          properties:
+            active:
+              type: boolean
+            activeFrom:
+              type: string
+              format: date
+            gst:
+              type: string
+              format: date
+              nullable: true
+              description: GST registration date
+        addresses:
+          type: array
+          items:
+            $ref: "#/components/schemas/AbnAddress"
+        businessNames:
+          type: array
+          items:
+            type: string
+
+    AbnAddress:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Address type (e.g. serviceAddress)
+        state:
+          type: string
+        postcode:
+          type: string
+        activeFrom:
+          type: string
+          format: date
+
+    AcnResponse:
+      type: object
+      properties:
+        abn:
+          type: string
+          nullable: true
+        abnFormatted:
+          type: string
+          nullable: true
+        acn:
+          type: string
+        acnFormatted:
+          type: string
+        entityName:
+          type: string
+        entityType:
+          type: string
+        abnDetails:
+          type: object
+          nullable: true
+          properties:
+            activeFrom:
+              type: string
+              format: date
+        acnDetails:
+          type: object
+          properties:
+            active:
+              type: boolean
+            activeFrom:
+              type: string
+              format: date
+            activeTo:
+              type: string
+              format: date
+              nullable: true
+        addresses:
+          type: array
+          items:
+            $ref: "#/components/schemas/AcnAddress"
+        formerNames:
+          type: array
+          items:
+            $ref: "#/components/schemas/FormerName"
+        documents:
+          type: array
+          items:
+            $ref: "#/components/schemas/AsicDocument"
+
+    AcnAddress:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Address type (registeredOffice, principalPlaceOfBusiness)
+        suburb:
+          type: string
+        state:
+          type: string
+        postcode:
+          type: string
+
+    FormerName:
+      type: object
+      properties:
+        name:
+          type: string
+        activeFrom:
+          type: string
+          format: date
+        activeTo:
+          type: string
+          format: date
+
+    AsicDocument:
+      type: object
+      properties:
+        number:
+          type: string
+        date:
+          type: string
+          format: date
+        code:
+          type: string
+        title:
+          type: string
+        pages:
+          type: integer
+        contents:
+          type: array
+          items:
+            type: object
+            properties:
+              subCode:
+                type: string
+              title:
+                type: string
+
+    NameAvailability:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Normalised (uppercased) name
+        availability:
+          type: string
+          description: Availability status (e.g. Available)
+        shortDescription:
+          type: string
+        objections:
+          type: array
+          items:
+            type: string
+        existingBusinessName:
+          type: boolean
+          description: Whether the name already exists as a registered business name
+
+    SanctionsResponse:
+      type: object
+      properties:
+        match:
+          type: boolean
+          description: true if any results meet the confidence threshold
+        results:
+          type: array
+          items:
+            $ref: "#/components/schemas/SanctionsResult"
+
+    SanctionsResult:
+      type: object
+      properties:
+        source:
+          type: string
+          enum: [dfat, ofac, eu, uk, un, ca, nz, fr, hk, wb, idb]
+          description: Source sanctions list
+        reference:
+          type: string
+          description: Source-specific reference number
+        name:
+          type: string
+          description: Primary name of the sanctioned individual or entity
+        type:
+          type: string
+          enum: [Individual, Entity, Vessel]
+        aliases:
+          type: array
+          items:
+            type: string
+        confidence:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Confidence score — higher when birth details match
+        sanctions:
+          type: object
+          properties:
+            targeted_financial_sanction:
+              type: boolean
+            travel_ban:
+              type: boolean
+            arms_embargo:
+              type: boolean
+            maritime_restriction:
+              type: boolean
+        date_of_birth:
+          type: string
+          nullable: true
+        place_of_birth:
+          type: string
+          nullable: true
+        citizenship:
+          type: string
+          nullable: true
+        committees:
+          type: string
+          nullable: true
+        listing_information:
+          type: string
+          nullable: true
+        source_updated_at:
+          type: string
+          description: Date of last source list update
+
+    DirectorIdResponse:
+      type: object
+      properties:
+        directorId:
+          type: string
+          description: Normalised digits only
+        directorIdFormatted:
+          type: string
+          description: Grouped with spaces
+        valid:
+          type: boolean
+        notice:
+          type: string
+
+    TfnResponse:
+      type: object
+      properties:
+        tfn:
+          type: string
+          description: Normalised digits only
+        tfnFormatted:
+          type: string
+          description: Grouped with spaces
+        valid:
+          type: boolean
+        notice:
+          type: string
+
+    EmailResponse:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Normalised (lowercased) email address
+        valid:
+          type: boolean
+          description: true only if both format and DNS checks pass
+        format:
+          type: object
+          properties:
+            valid:
+              type: boolean
+            account:
+              type: string
+              nullable: true
+              description: Local part (before @)
+            domain:
+              type: string
+              nullable: true
+              description: Domain part (after @)
+        dns:
+          type: object
+          properties:
+            valid:
+              type: boolean
+              description: Domain has valid MX or A records
+        deliverable:
+          type: boolean
+          nullable: true
+        canConnectSmtp:
+          type: boolean
+          nullable: true
+        inboxFull:
+          type: boolean
+          nullable: true
+        disabled:
+          type: boolean
+          nullable: true
+        catchAll:
+          type: boolean
+          nullable: true
+        score:
+          type: number
+          format: float
+          nullable: true
+          minimum: 0
+          maximum: 1
+          description: Quality score — higher is better
+        free:
+          type: boolean
+          nullable: true
+          description: Whether the email uses a free provider
+        disposable:
+          type: boolean
+          nullable: true
+          description: Whether the email uses a disposable/temporary provider
+        role:
+          type: boolean
+          nullable: true
+          description: Whether this is a role-based address (e.g. support@, info@)
+
+    PhoneResponse:
+      type: object
+      properties:
+        phone:
+          type: string
+          description: E.164 format
+        phoneNational:
+          type: string
+          description: National format as dialled locally
+        phoneInternational:
+          type: string
+          description: International format with country code
+        valid:
+          type: boolean
+        country:
+          type: string
+          description: Detected ISO 3166-1 alpha-2 country code
+        type:
+          type: string
+          nullable: true
+          description: "Line type: mobile, fixed-line, toll-free, voip, etc."
+        carrier:
+          type: string
+          nullable: true
+        location:
+          type: string
+          nullable: true
+
+    BulkCreateRequest:
+      type: object
+      required: [endpoint, items]
+      properties:
+        endpoint:
+          type: string
+          enum:
+            - address-validation
+            - reverse
+            - abn
+            - acn
+            - sanctions-screening
+            - tfn
+            - director-id
+            - email
+            - phone
+          description: Endpoint slug to process
+        items:
+          oneOf:
+            - type: array
+              items:
+                type: string
+              description: Array of strings for single-field endpoints
+            - type: array
+              items:
+                type: object
+              description: Array of objects with required fields for multi-field endpoints
+
+    BulkJob:
+      type: object
+      properties:
+        id:
+          type: integer
+        endpoint:
+          type: string
+        status:
+          type: string
+          enum: [pending, processing, completed, failed]
+        total_rows:
+          type: integer
+        created_at:
+          type: string
+          format: date-time

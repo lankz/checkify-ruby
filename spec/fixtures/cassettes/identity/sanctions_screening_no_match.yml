@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/sanctions-screening?name=John%20Smith%20Test
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:54:06 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '27'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=mQ1hFV5up6smx5feXKhmrxVAmTxMkWFYp66nMhsx0%2FGJ%2FDV6AieGJb6n6dFQMO0fPqBqKnAh%2F0gHzd2pnez2%2BaKX5vXsRSvKDn7OTTTUkMFfERcGR%2FhquVb0dn0pF4YgUW8%3D"}]}'
+      Cf-Ray:
+      - a3619aa6ec1ffdfd-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"match":false,"results":[]}'
+  recorded_at: Sat, 05 Sep 2026 01:54:06 GMT
+recorded_with: VCR 6.4.0

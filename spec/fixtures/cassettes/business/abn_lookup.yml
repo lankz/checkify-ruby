@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/abn?abn=26%20008%20672%20179
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:54:25 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '21'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=%2BzmIiiAxJZLnzy%2B5LCn%2BlFr0VHIUHIjgPblOnsvWtyDAX9B4ahlmQ4zr0cwTHK93O4WbEujR0t8oaLPN8FoXN4l9Yl8SDvu9BZflMRSvG5EJ56JcMrhcmSiR8PnjKChffnI%3D"}]}'
+      Cf-Ray:
+      - a3619b189db2fdfd-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"abn":"26008672179","abnFormatted":"26 008 672 179","acn":"008672179","acnFormatted":"008
+        672 179","entityName":"BUNNINGS GROUP LIMITED","entityType":"Australian Public
+        Company","abnDetails":{"active":true,"activeFrom":"1999-11-01","gst":"2000-07-01"},"addresses":[{"type":"serviceAddress","state":"VIC","postcode":"3121","activeFrom":"2022-01-13"}],"businessNames":["ADELAIDE
+        TOOLS","Adelaide Trade Tools","BUNNINGS","BUNNINGS KITCHEN COLLECTIVE","BUNNINGS
+        TRADE","BUNNINGS WAREHOUSE","Benchmark Tools","Bunnings Outdoors","CLEVER
+        LIVING CO","CRAFTRIGHT","Discount Power Tools (S.A.)","Dynamic Pods","Dynamic
+        Steel Frame","Electric Power Tool Services","GARDENBASICS","Gladesville Homemaker
+        Centre","HARDWARE CAFE","NARELLAN HOMEMAKER CENTRE","ONYA Tools","Oaklands
+        Mower Centre","Oaklands Road Mower Centre","THE KITCHEN COLLECTIVE CO","TOOL
+        KIT DEPOT","Tools not Toys","big prawn","home@gladesville"]}'
+  recorded_at: Sat, 05 Sep 2026 01:54:25 GMT
+recorded_with: VCR 6.4.0

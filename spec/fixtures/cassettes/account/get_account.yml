@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:56:05 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '25'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=lvtsFyc70rmE1M3e6YUHKgkJMic2UTJZEVKmRRTJvnL%2B384HM8eaRccMPfk4q490R%2BtCvAYMiZXwL917groaj%2BF3CN4W0aEz9z16znLYyPz2E2JfiMcDyIaUllvRGGYjNlQ%3D"}]}'
+      Cf-Ray:
+      - a3619d8b99045c31-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: '{"plan":"free","plan_name":"Free","status":"free","cancels_at":null,"units_used":0,"units_limit":0,"units_remaining":0,"period_start":"1970-01-01","period_end":"1970-01-01","usage":{}}'
+  recorded_at: Sat, 05 Sep 2026 01:56:05 GMT
+recorded_with: VCR 6.4.0

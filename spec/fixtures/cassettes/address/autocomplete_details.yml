@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/autocomplete-details?id=CKNSW706066924
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:58:54 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '24'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=oXvx2MUbKfW2NutxsvxOq%2FtAT5bpTatxIGJyhenvPSV7HxkpP%2FJPLVk6v%2FBa9kZ4lLZitkC9EsB%2BmbK6OTUO3ZfeC9kHWnmpcoBimzp7uGbSN%2B%2FbBxIxGpy5StuYGTl7N94%3D"}]}'
+      Cf-Ray:
+      - a361a1abcd9ece15-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"unit":"SHOP 1","level":null,"unitLevel":"SHOP 1","streetNumber":"1","streetName":"MACQUARIE","streetType":"STREET","street":"1
+        MACQUARIE STREET","city":"SYDNEY","postcode":"2000","state":"NSW","stateFull":"New
+        South Wales","country":"AU","countryFull":"Australia","latitude":-33.85932705,"longitude":151.21320051,"meshBlockCode":"MB2110741850000","buildingName":null}'
+  recorded_at: Sat, 05 Sep 2026 01:58:54 GMT
+recorded_with: VCR 6.4.0

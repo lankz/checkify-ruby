@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/reverse?lat=-33.8688&lng=151.213&radius=200
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:59:17 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '22'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=4r8UIWdjGN0tOpcAK7bODHkOYsMvmrlqzijRsezf1NbteusGN0NFxfnGwKtm6d1iwS38EQQypZvF1feKx%2FEnxVoyX%2BcqkT2Mro%2Bn6gl0%2BCBJW3Zhg5I1K9HqfMSICHLpkUA%3D"}]}'
+      Cf-Ray:
+      - a361a1cc9b95ce15-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"addressId":"CKNSW718846818","addressFull":"10A MACQUARIE STREET
+        SYDNEY NSW 2000","unit":null,"level":null,"streetNumber":"10A","streetName":"MACQUARIE","streetType":"STREET","street":"10A
+        MACQUARIE STREET","city":"SYDNEY","postcode":"2000","state":"NSW","stateFull":"New
+        South Wales","country":"AU","countryFull":"Australia","latitude":-33.86908673,"longitude":151.21297016,"buildingName":null,"distanceMetres":31.9}]'
+  recorded_at: Sat, 05 Sep 2026 01:59:17 GMT
+recorded_with: VCR 6.4.0

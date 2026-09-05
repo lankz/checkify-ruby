@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/autocomplete?query=1%20macquarie%20st%20sydney
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:58:43 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '28'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=BsJh5IBPwMG9XiU46j2DgqMwy891DhFRFexvPM9g%2FksPbgaCJvy56nGPM9zLk35GEJyoz3zddH72kRl7qRozka55hkCm5ltjy4gMKkxFt02kX8aUWCYGu972shRcIB3l3Iw%3D"}]}'
+      Cf-Ray:
+      - a361a1607d77ce15-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"CKNSW706066924":"SHOP <strong>1<\/strong> <strong>1<\/strong> <strong>MACQUARIE<\/strong>
+        <strong>STREET<\/strong> <strong>SYDNEY<\/strong> NSW 2000","CKNSW718242343":"SE
+        <strong>1<\/strong> L <strong>18<\/strong> <strong>1<\/strong> <strong>MACQUARIE<\/strong>
+        PLACE <strong>SYDNEY<\/strong> NSW 2000","CKNSW719357845":"UNIT <strong>123<\/strong>
+        L <strong>12<\/strong> <strong>123<\/strong> <strong>MACQUARIE<\/strong> <strong>STREET<\/strong>
+        <strong>SYDNEY<\/strong> NSW 2000","CKNSW718169877":"SE <strong>1<\/strong>
+        L 47 <strong>1<\/strong> <strong>MACQUARIE<\/strong> PLACE <strong>SYDNEY<\/strong>
+        NSW 2000","CKNSW717819733":"SE <strong>1<\/strong> L 29 <strong>1<\/strong>
+        <strong>MACQUARIE<\/strong> PLACE <strong>SYDNEY<\/strong> NSW 2000","CKNSW717819735":"SE
+        <strong>1<\/strong> L 38 <strong>1<\/strong> <strong>MACQUARIE<\/strong> PLACE
+        <strong>SYDNEY<\/strong> NSW 2000","CKNSW718543153":"SE <strong>1<\/strong>
+        L <strong>10<\/strong> <strong>1<\/strong> <strong>MACQUARIE<\/strong> PLACE
+        <strong>SYDNEY<\/strong> NSW 2000","CKNSW717819734":"SE <strong>1<\/strong>
+        L 34 <strong>1<\/strong> <strong>MACQUARIE<\/strong> PLACE <strong>SYDNEY<\/strong>
+        NSW 2000","CKNSW718665339":"SE <strong>1<\/strong> L 36 <strong>1<\/strong>
+        <strong>MACQUARIE<\/strong> PLACE <strong>SYDNEY<\/strong> NSW 2000","CKNSW717479485":"SE
+        <strong>1<\/strong> 8 <strong>MACQUARIE<\/strong> <strong>STREET<\/strong>
+        <strong>SYDNEY<\/strong> NSW 2000"}'
+  recorded_at: Sat, 05 Sep 2026 01:58:43 GMT
+recorded_with: VCR 6.4.0

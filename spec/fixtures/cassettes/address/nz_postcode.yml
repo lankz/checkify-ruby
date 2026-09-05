@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/postcode?country=nz&postcode=1010
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:56:27 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '24'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=CIOQs76Sdwnqodx7lyKpR4ZjuQHWfwFvyLcqmVzlVlBy%2Bh1wqwieeJhwEXr44mr4c0sDWeaIcPiMqEZMxvOBcXn643sodBX0EQwMerPEtigl50iSELOn5rhF%2FkqDCpFFCnw%3D"}]}'
+      Cf-Ray:
+      - a3619e0e1c585c31-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"city":"Auckland Central","region":"Auckland","postcode":"1010","state":null,"stateFull":null,"country":"NZ","countryFull":"New
+        Zealand"},{"city":"Eden Terrace","region":"Auckland","postcode":"1010","state":null,"stateFull":null,"country":"NZ","countryFull":"New
+        Zealand"},{"city":"Grafton","region":"Auckland","postcode":"1010","state":null,"stateFull":null,"country":"NZ","countryFull":"New
+        Zealand"},{"city":"Grey Lynn","region":"Auckland","postcode":"1010","state":null,"stateFull":null,"country":"NZ","countryFull":"New
+        Zealand"},{"city":"Judges Bay","region":null,"postcode":"1010","state":null,"stateFull":null,"country":"NZ","countryFull":"New
+        Zealand"},{"city":"Mechanics Bay","region":"Auckland","postcode":"1010","state":null,"stateFull":null,"country":"NZ","countryFull":"New
+        Zealand"},{"city":"Motutapu Island","region":"Auckland","postcode":"1010","state":null,"stateFull":null,"country":"NZ","countryFull":"New
+        Zealand"},{"city":"Parnell","region":"Auckland","postcode":"1010","state":null,"stateFull":null,"country":"NZ","countryFull":"New
+        Zealand"},{"city":"R\u0101kino Island","region":"Auckland","postcode":"1010","state":null,"stateFull":null,"country":"NZ","countryFull":"New
+        Zealand"},{"city":"Saint Marys Bay","region":"Auckland","postcode":"1010","state":null,"stateFull":null,"country":"NZ","countryFull":"New
+        Zealand"},{"city":"Westhaven","region":"Auckland","postcode":"1010","state":null,"stateFull":null,"country":"NZ","countryFull":"New
+        Zealand"}]'
+  recorded_at: Sat, 05 Sep 2026 01:56:27 GMT
+recorded_with: VCR 6.4.0

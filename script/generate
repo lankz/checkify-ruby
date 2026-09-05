@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+require "fileutils"
+require "open3"
+require "tmpdir"
+
+Dir.chdir(File.expand_path("..", __dir__))
+version, status = Open3.capture2("openapi-generator", "version")
+abort "Install OpenAPI Generator 7.21.0" unless status.success? && version.strip == "7.21.0"
+
+Dir.mktmpdir("checkify-generate-") do |dir|
+  templates = File.join(dir, "templates")
+  output = File.join(dir, "output")
+  system("openapi-generator", "author", "template", "-g", "ruby", "-o", templates, exception: true)
+
+  # Keep our transport fixes and handwritten entry point across regeneration.
+  patches = [
+    ["api.mustache", "content_type = @api_client.select_header_content_type(",
+     "content_type = header_params['Content-Type'] || @api_client.select_header_content_type("],
+    ["api_client_typhoeus_partial.mustache", "follow_location = opts[:follow_location] || true",
+     "follow_location = opts.fetch(:follow_location, true)"],
+    ["configuration.mustache", "@timeout = 0", "@timeout = 30"],
+    ["configuration.mustache", "Default to 0 (never times out).", "Default to 30 seconds; set to 0 to disable the timeout."],
+    ["gem.mustache", "require '{{gemName}}/configuration'",
+     "require '{{gemName}}/configuration'\nrequire '{{gemName}}/client'"],
+    ["gem.mustache", 'config.username = "xxx"', 'config.access_token = ENV.fetch("CHECKIFY_API_KEY")'],
+    ["gem.mustache", 'config.password = "xxx"', 'config.timeout = 30']
+  ]
+  patches.each do |filename, original, replacement|
+    path = File.join(templates, filename)
+    template = File.read(path)
+    abort "#{filename} changed; review the patch for #{original}" unless template.scan(original).size == 1
+    File.write(path, template.sub(original, replacement))
+  end
+
+  system("openapi-generator", "generate", "-g", "ruby", "-i", "openapi.yaml",
+         "-c", "generator/config.yaml", "-t", templates, "-o", output, exception: true)
+
+  # Only generated library code and API reference pages belong to the generator.
+  files = Dir.chdir(output) { Dir["lib/**/*.rb", "docs/**/*.md"].sort }
+  previous = File.readlines(".openapi-generator/FILES", chomp: true).grep(/\A(?:lib\/.*\.rb|docs\/.*\.md)\z/)
+  FileUtils.rm_f(previous - files)
+  files.each do |file|
+    FileUtils.mkdir_p(File.dirname(file))
+    FileUtils.cp(File.join(output, file), file)
+  end
+  File.write(".openapi-generator/FILES", files.join("\n") + "\n")
+  FileUtils.cp(File.join(output, ".openapi-generator/VERSION"), ".openapi-generator/VERSION")
+end
+
+system("bundle", "exec", "rubocop", "--autocorrect", "lib", exception: true)

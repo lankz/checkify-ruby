@@ -1,0 +1,214 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/acn?acn=008%20672%20179
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:54:35 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '18'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=1gNSudZ2CPnB9%2FfQQ6Ahgtc4jGK5%2F%2FdW6tj%2FMEajW8dO4BpK3i%2FTaPiOA7t8P095S%2FnsVv%2FHhARUx98qHPYO1pMWSpQXe3ebSrxL6tcZsMOxQBrehb93AFRtIS90D%2B8sFeg%3D"}]}'
+      Cf-Ray:
+      - a3619b51c94bfdfd-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"abn":"26008672179","abnFormatted":"26 008 672 179","acn":"008672179","acnFormatted":"008
+        672 179","entityName":"BUNNINGS GROUP LIMITED","entityType":"Australian Public
+        Company","abnDetails":{"activeFrom":"1999-11-01"},"acnDetails":{"active":true,"activeFrom":"1948-06-18","activeTo":"2027-06-30"},"addresses":[{"type":"registeredOffice","suburb":"PERTH","state":"WA","postcode":"6000"},{"type":"principalPlaceOfBusiness","suburb":"BURNLEY","state":"VIC","postcode":"3121"}],"formerNames":[{"name":"BUNNINGS
+        LIMITED","activeFrom":"2005-08-26","activeTo":"2005-08-31"},{"name":"BUNNINGS
+        PTY LTD","activeFrom":"2003-10-22","activeTo":"2005-08-25"},{"name":"BUNNINGS
+        BUILDING SUPPLIES PTY. LTD.","activeFrom":"1985-05-22","activeTo":"2003-08-14"},{"name":"BUNNINGS
+        (DONNELLY) PTY LTD","activeFrom":"1966-01-05","activeTo":"1985-05-21"},{"name":"DONNELLY
+        SAW MILLS PTY. LTD.","activeFrom":null,"activeTo":"1966-01-04"}],"documents":[{"number":"6EMGJ2526","date":"2026-07-30","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"}]},{"number":"6EJOZ7287","date":"2025-06-23","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484O","title":"CHANGES
+        TO SHARE STRUCTURE"},{"subCode":"484G","title":"NOTIFICATION OF SHARE ISSUE"}]},{"number":"6EEBF1827","date":"2024-07-25","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"5EGM07898","date":"2022-08-03","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"2EZN13877","date":"2022-04-28","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"5EEQ37096","date":"2021-11-04","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484C","title":"CHANGE
+        OF PRINCIPAL PLACE OF BUSINESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"2EMT24359","date":"2021-09-06","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"5EEA56208","date":"2021-07-05","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"5ECE50197","date":"2020-11-05","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"5EBU88107","date":"2020-09-08","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"5EBU44408","date":"2020-08-26","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"5EBR83192","date":"2020-06-16","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"5EBK68398","date":"2020-01-16","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"5EBK12716","date":"2019-12-05","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"5EBK06075","date":"2019-12-02","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"030744265","date":"2019-10-31","code":"389","title":"ANNUAL
+        NOTICE BY WHOLLY-OWNED ENTITY","pages":4,"contents":[{"subCode":"389B","title":"ANNUAL
+        NOTICE BY WHOLLY-OWNED ENTITY - COMPANIES"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"0ERG30790","date":"2019-08-01","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"030611307","date":"2019-06-07","code":"351","title":"DEED
+        RELATING TO CLASS ORDER","pages":12,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"5EAZ08480","date":"2019-05-30","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"5EAY88211","date":"2019-05-20","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"5EAA93787","date":"2018-09-05","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"5EAA14225","date":"2018-06-06","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"5E4618781","date":"2017-11-21","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"3E9222880","date":"2017-10-25","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"3E7309115","date":"2017-09-11","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"3E7028359","date":"2017-09-04","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"029802705","date":"2017-01-11","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":4,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"029727763","date":"2016-12-16","code":"902","title":"SUPPLEMENTARY
+        DOCUMENT","pages":1,"contents":[{"subCode":"484E","title":"APPOINTMENT OR
+        CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"2E7140159","date":"2016-12-15","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"029797125","date":"2016-12-01","code":"902","title":"SUPPLEMENTARY
+        DOCUMENT","pages":1,"contents":[{"subCode":"484A1","title":"CHANGE OFFICEHOLDER
+        NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF SHARE ISSUE"}]},{"number":"5E4139823","date":"2016-10-26","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484B","title":"CHANGE
+        OF REGISTERED ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF SHARE ISSUE"}]},{"number":"2E4512262","date":"2016-08-31","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"2E3779295","date":"2016-05-26","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"2E3300537","date":"2016-03-15","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":3,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"2E2941565","date":"2015-12-29","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"2E2026863","date":"2015-06-25","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"028987609","date":"2014-08-06","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":3,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"028769626","date":"2013-12-03","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"028683938","date":"2013-11-11","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"028762071","date":"2013-10-22","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"028655058","date":"2013-08-22","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"028601511","date":"2013-08-20","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"027593733","date":"2011-05-11","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"027290273","date":"2011-05-03","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"027218225","date":"2011-02-17","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":3,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"026648736","date":"2010-08-10","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":3,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"026614223","date":"2010-06-14","code":"352","title":"ASSUMPTION
+        DEED RELATING TO CLASS ORDER","pages":10,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"1F0350004","date":"2010-05-17","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":2,"contents":[{"subCode":"484A1","title":"CHANGE
+        OFFICEHOLDER NAME OR ADDRESS"},{"subCode":"484G","title":"NOTIFICATION OF
+        SHARE ISSUE"}]},{"number":"026355591","date":"2010-02-15","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":3,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]},{"number":"025992616","date":"2009-10-22","code":"484","title":"CHANGE
+        TO COMPANY DETAILS","pages":3,"contents":[{"subCode":"484E","title":"APPOINTMENT
+        OR CESSATION OF A COMPANY OFFICEHOLDER"},{"subCode":"484G","title":"NOTIFICATION
+        OF SHARE ISSUE"}]}]}'
+  recorded_at: Sat, 05 Sep 2026 01:54:35 GMT
+recorded_with: VCR 6.4.0

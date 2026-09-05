@@ -1,0 +1,9 @@
+gemName: checkify
+moduleName: Checkify
+gemVersion: 0.1.0
+httpUserAgent: 'checkify/#{VERSION}/ruby'
+gitUserId: lankz
+gitRepoId: checkify-ruby
+gemRequiredRubyVersion: ">= 3.3"
+library: typhoeus
+hideGenerationTimestamp: true

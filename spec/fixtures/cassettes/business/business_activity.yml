@@ -1,0 +1,143 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/business-activity?search=accounting
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:54:31 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '19'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=mawLYXBkYTdScnSZIklUdWXtmYWTr4bsEKC3Pu72epbBQIHo90nxBBBc6dtejEujjhAHzdnCYhdh7i9L4Zzzmba2ss%2FNKVC88JDxonyoCgoZiUGoZUNKytM59%2FqzkFZAksA%3D"}]}'
+      Cf-Ray:
+      - a3619b40aed2fdfd-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"status":"success","count":18,"activities":[{"code":"7535","industryCode":"69320","fullName":"Accounting
+        service"},{"code":"7536","industryCode":"69320","fullName":"Assignee accounting
+        service"},{"code":"7542","industryCode":"69320","fullName":"Liquidation and
+        receivership accounting service"},{"code":"3627","industryCode":"24219","fullName":"Machine
+        manufacturing (including accounting, addressing, business, enveloping, letter
+        folding, numbering, photocopying or duplicating)"},{"code":"7596","industryCode":"69629","fullName":"Lobbyist
+        - own account"},{"code":"7181","industryCode":"64190","fullName":"Superannuation
+        commission agent - own account"},{"code":"8100","industryCode":"85110","fullName":"GP
+        - own account"},{"code":"8101","industryCode":"85110","fullName":"General
+        medical practitioner - own account"},{"code":"7534","industryCode":"69320","fullName":"Accountant
+        - own account"},{"code":"7538","industryCode":"69320","fullName":"Auditor
+        - own account"},{"code":"7543","industryCode":"69320","fullName":"Tax agent
+        - own account"},{"code":"7071","industryCode":"62400","fullName":"Investment
+        - advances, cash and deposits, commodity futures, mortgages - own account"},{"code":"7073","industryCode":"62400","fullName":"Investment
+        - shares in corporations - own account"},{"code":"7075","industryCode":"62400","fullName":"Investment
+        operation - own account; in predominantly financial assets (except superannuation
+        funds)"},{"code":"7076","industryCode":"62400","fullName":"Investment operation,
+        stocks trading - own account (except superannuation funds)"},{"code":"7077","industryCode":"62400","fullName":"Investment
+        or investor - bonds, bills, equities, credits or listed and unlisted securities
+        - own account"},{"code":"7081","industryCode":"62400","fullName":"Shares or
+        stocks trading - own account (except superannuation funds)"},{"code":"7082","industryCode":"62400","fullName":"Trading
+        in emission or carbon credits on your own account"}]}'
+  recorded_at: Sat, 05 Sep 2026 01:54:31 GMT
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/business-activity?limit=3&search=accounting
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:56:41 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '20'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=6n3ADO9nuDsqX%2B21q6Jhs7xsndJJrEJhwm0xYLvebUJamPXjG09cN6ql%2FpJrPp9kOMuQYyawnzlMRziaQGTefipxrJ6k6uLfnMznOVcpmUYoC2vJnnBJc77U3GE4OGUDQKc%3D"}]}'
+      Cf-Ray:
+      - a3619e701bcf5c31-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"status":"success","count":3,"activities":[{"code":"7535","industryCode":"69320","fullName":"Accounting
+        service"},{"code":"7536","industryCode":"69320","fullName":"Assignee accounting
+        service"},{"code":"7542","industryCode":"69320","fullName":"Liquidation and
+        receivership accounting service"}]}'
+  recorded_at: Sat, 05 Sep 2026 01:56:42 GMT
+recorded_with: VCR 6.4.0

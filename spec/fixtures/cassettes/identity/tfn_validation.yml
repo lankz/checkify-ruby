@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/tfn?tfn=123456782
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:54:01 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '29'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=hKEuFrOMweWD%2FC0doBcHbpNEAvVzthXeWt89YKDi%2BlWVjVSX5p7Jhy5EFERDiDC407vshvwaHboKImImxlnZxyaOsRaIcOQ1BMJP5wjMcedFUcQ6i9Ap%2BWR%2Bhe1QU09MLhQ%3D"}]}'
+      Cf-Ray:
+      - a3619a828a14fdfd-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"tfn":"123456782","tfnFormatted":"123 456 782","valid":true,"notice":"Structural
+        validity confirmed. This check does not perform a live ATO registry lookup."}'
+  recorded_at: Sat, 05 Sep 2026 01:54:01 GMT
+recorded_with: VCR 6.4.0

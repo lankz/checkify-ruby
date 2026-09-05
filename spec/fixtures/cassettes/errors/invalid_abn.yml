@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/abn?abn=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 422
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:56:32 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '23'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      X-Content-Type-Options:
+      - nosniff
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=LwxiG8lmuFsV84fxisM06fMF8gqIuIGBMAWt1YfFz5TORweae%2FrEE1tzP7%2F5RZJw4xwctQF%2FrNf8%2BO%2FK6ZtSgR%2FZ6jFcz%2F0vtq10w9F%2BlnruN7e3lLrAZOi2n9URUEJDOig%3D"}]}'
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Ray:
+      - a3619e389f1e5c31-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"The abn must be an 11-digit ABN.","errors":{"abn":["The
+        abn must be an 11-digit ABN."]}}'
+  recorded_at: Sat, 05 Sep 2026 01:56:33 GMT
+recorded_with: VCR 6.4.0

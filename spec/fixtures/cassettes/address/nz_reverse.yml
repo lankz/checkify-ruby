@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/reverse?country=nz&lat=-36.844&limit=2&lng=174.766&radius=500
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:56:23 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '25'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=H78TqOOojVsIx%2BPcHToJaktVPbacLat27Bvw3WdUS2bPeuZQqBtXjOZJFulTibmdkwpbARcmEl9crrhvRLj%2BFSXLDXEd6Ppae5JmvQKBZQwB0Fq9%2B%2BsPrSZm%2Bu%2BnmsAlblU%3D"}]}'
+      Cf-Ray:
+      - a3619de4df785c31-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"addressId":"NZ2426589","addressFull":"7A Queen Street, Auckland
+        Central, Auckland","unit":null,"level":null,"streetNumber":"7A","streetName":"Queen","streetType":"Street","street":"7A
+        Queen Street","city":"Auckland Central","postcode":"1010","state":null,"stateFull":null,"region":"Auckland","country":"NZ","countryFull":"New
+        Zealand","latitude":-36.84402098,"longitude":174.7658786,"buildingName":null,"distanceMetres":11.1},{"addressId":"NZ2150076","addressFull":"15
+        Customs Street West, Auckland Central, Auckland","unit":null,"level":null,"streetNumber":"15","streetName":"Customs","streetType":"Street","street":"15
+        Customs Street West","city":"Auckland Central","postcode":"1010","state":null,"stateFull":null,"region":"Auckland","country":"NZ","countryFull":"New
+        Zealand","latitude":-36.8442296,"longitude":174.7658072,"buildingName":null,"distanceMetres":30.7}]'
+  recorded_at: Sat, 05 Sep 2026 01:56:23 GMT
+recorded_with: VCR 6.4.0

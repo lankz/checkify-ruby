@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 401
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:56:30 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Cache-Control:
+      - no-cache, private
+      Access-Control-Allow-Origin:
+      - "*"
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      X-Content-Type-Options:
+      - nosniff
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=3ZPMxEcs8bnqB0QEEVIA6uz5L1ut4WZNR2AgD4owlVWGGlFb1JLtK5aKrJ%2BcG3BEqPAdXnAGlRQCKfsCGOyVuJeZiD2UIGSCGqMyeg96nCThnQ6NM9j0wxFgVHS5LODrgbY%3D"}]}'
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Ray:
+      - a3619e286da75c31-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Unauthenticated."}'
+  recorded_at: Sat, 05 Sep 2026 01:56:30 GMT
+recorded_with: VCR 6.4.0

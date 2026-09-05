@@ -1,0 +1,8 @@
+[extend]
+useDefault = true
+
+[[rules]]
+id = "checkify-api-token"
+description = "Checkify public or private API token"
+regex = '''ck_(?:prv|pub)_[A-Za-z0-9_-]{16,}'''
+keywords = ["ck_prv_", "ck_pub_"]

@@ -1,0 +1,250 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://checkify.com.au/api/v1/sanctions-screening?birth_year=1950&country=AF&name=Mohammad%20Hassan
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 05 Sep 2026 01:54:04 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '28'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=gDjNkw%2FJ6tG%2FQEyl9ITaV3UlrAuwhJ5oe2EoRKJ%2FpHxlt8hUTx433%2FnYziJC8TisxwZVBKq6btiycHkqAFTFgyTsShFu52Skssw4U4t2bzPOT%2Bm18bfjghMk4gpQ9WW1Ndw%3D"}]}'
+      Cf-Ray:
+      - a3619a959d4dfdfd-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"match":true,"results":[{"source":"uk","reference":"7172","name":"MOHAMMAD
+        HASSAN AKHUND","type":"Individual","aliases":["\u0645\u062d\u0645\u062f \u062d\u0633\u0646
+        \u0622\u062e\u0648\u0646\u062f"],"date_of_birth":"00\/00\/1946 (Pashmul village);
+        00\/00\/1948 (Pashmul village); 00\/00\/1950 (Pashmul village); 00\/00\/1956
+        (Pashmul village); 00\/00\/1958 (Pashmul village)","place_of_birth":"Pashmul
+        village","citizenship":"AF","listing_information":"Afghanistan, Listed by:
+        UN, Ref: AFG0006, UN Ref: TAi.002","committees":"Afghanistan","sanctions":{"targeted_financial_sanction":true,"travel_ban":false,"arms_embargo":false,"maritime_restriction":false},"confidence":0.848,"source_updated_at":"2026-06-03
+        00:00:00"},{"source":"fr","reference":"2867","name":"AKHUND MOHAMMAD HASSAN","type":"Individual","aliases":[],"date_of_birth":"1955
+        (Village de Pashmul, district de Panjwai, province de Kandahar); 1956; 1957;
+        1958; 1945; 1946; 1947; 1948; 1949; 1950","place_of_birth":"Village de Pashmul,
+        district de Panjwai, province de Kandahar","citizenship":"AF","listing_information":"d\u00e9cision
+        du comit\u00e9 des sanctions des Nations unies du 25\/01\/2001 (ONU Afghanistan\/Taliban
+        - R\u00e9solution 1988 (2011) du CSNU et R (UE) 753\/2011); (UE) 753\/2011
+        du 01\/08\/2011 (ONU Afghanistan\/Taliban - R\u00e9solution 1988 (2011) du
+        CSNU et R (UE) 753\/2011); (UE) 968\/2011 du 29\/09\/2011 (ONU Afghanistan\/Taliban
+        - R\u00e9solution 1988 (2011) du CSNU et R (UE) 753\/2011); (UE) 263\/2012
+        du 23\/03\/2012 (ONU Afghanistan\/Taliban - R\u00e9solution 1988 (2011) du
+        CSNU et R (UE) 753\/2011); (UE) 2017\/404 du 07\/03\/2017 (ONU Afghanistan\/Taliban
+        - R\u00e9solution 1988 (2011) du CSNU et R (UE) 753\/2011); d\u00e9cision
+        du comit\u00e9 des sanctions des Nations unies du 13\/04\/2026 (ONU Afghanistan\/Taliban
+        - R\u00e9solution 1988 (2011) du CSNU et R (UE) 753\/2011)","committees":null,"sanctions":{"targeted_financial_sanction":true,"travel_ban":false,"arms_embargo":false,"maritime_restriction":false},"confidence":0.848,"source_updated_at":"2026-09-03
+        00:00:00"},{"source":"dfat","reference":"2","name":"MOHAMMAD HASSAN AKHUND","type":"Individual","aliases":["\u0645\u062d\u0645\u062f
+        \u062d\u0633\u0646 \u0623\u062e\u0648\u0646\u062f"],"date_of_birth":"1945,
+        1946, 1947, 1948, 1949, 1950, 1955, 1956, 1957, 1958 (Pashmul village)","place_of_birth":"Pashmul
+        village","citizenship":"AF","listing_information":"Listed on 25 January 2001
+        (amended on 3 Sep 2003, 20 December 2005, 9 July 2007 and 21 Sep 2007, 29
+        Nov. 2011, 10 Mar. 2026, 13 Apr. 2026)","committees":"1988 (Taliban)","sanctions":{"targeted_financial_sanction":true,"travel_ban":true,"arms_embargo":true,"maritime_restriction":false},"confidence":0.848,"source_updated_at":"2026-09-04
+        00:00:00"},{"source":"hk","reference":"Afghanistan-110577","name":"MOHAMMAD
+        HASSAN AKHUND","type":"Individual","aliases":[],"date_of_birth":"1955-1958
+        (Pashmul village, Panjwai District); 1945-1950","place_of_birth":"Pashmul
+        village, Panjwai District","citizenship":"AF","listing_information":"Afghanistan","committees":"Taliban","sanctions":{"targeted_financial_sanction":true,"travel_ban":true,"arms_embargo":false,"maritime_restriction":false},"confidence":0.788,"source_updated_at":"2024-03-09
+        00:00:00"},{"source":"nz","reference":"37546","name":"Mohammad Hassan AKHUND","type":"Individual","aliases":["Abdul
+        Kabir MOHAMMAD JAN","A. KABIR","Abdul Kabir MUHAMMAD JAN","Muhammad Taher
+        ANWARI","Muhammad Tahir ANWARI","Mohammad Tahre ANWARI","Mohammad Taher ANWARI","Haji
+        MUDIR","Sayyed Mohammed HAQQANI","Sayyed Mohammad HAQQANI","Abdul Latif MANSUR","Abdul
+        Latif MANSOOR","Wali MOHAMMAD","Shams Ur-Rahman ABDUL ZAHIR","SHAMSURRAHMAN","SHAMS-U-RAHMAN","Shamsurrahman
+        ABDURAHMAN","Shams Ur-Rahman SHER ALAM","Attiqullah AKHUND","Akhtar Mohammad
+        Mansour SHAH MOHAMMED","Akhtar Mohammad Mansour Khan MUHAMMAD","Akhtar Muhammad
+        MANSOOR","Akhtar Mohammad MANSOOR","Naib IMAM","Mohammad Naim Barich KHUDAIDAD","Mullah
+        Naeem BARECH","Mullah Naeem BARAICH","Mullah NAIMULLAH","Mullah Naim BAREH","Mohammad
+        NAIM","Mullah Naim BARICH","Mullah Naim BARECH","Mullah Naim Barech AKHUND","Mullah
+        Naeem BARIC","Naim BERICH","Haji GUL","Mohammed Naim BARICH","Gul MOHAMMAD","Haji
+        Gul MOHAMMAD","Gul Mohammad KAMRAN","Mawlawi Gul MOHAMMAD","Spen ZRAE","HIDAYATULLAH","Abu
+        TURAB","Yar Mohammad RAHIMI","Allah Dad Tayeb Wali MUHAMMAD","Allah Dad TAYYAB","Allah
+        Dad TABEEB","Abdul Razaq Akhund LALA AKHUND","Nik Mohammad DOST MOHAMMAD","Nik
+        Mohammad MOHAMMAD","MATIULLAH","Ubaidullah Akhund YAR MOHAMMAD AKHUND","Obaid
+        ullah AKHUND","Obaidullah AKHUND","Fazl Mohammad MAZLOOM","Molah FAZL","Fazel
+        Mohammad MAZLOOM","Mohammad Fadel AAKHUND","Abdul Ghani Baradar ABDUL AHMAD
+        TURK","Mullah Baradar AKHUND","Abdul Ghani BARADAR","Abdul Rauf KHADEM","Mullah
+        Abdul Rauf ALIZA","Amir Khan MOTAQI","Amir Khan MUTTAQI","Amir Khan MUTAQI","Abdul
+        Salam Hanafi Ali Mardan QUL","Abdussalam HANIFI","Hanafi SAHEB","Abdul Salam
+        HANAFI","Said Ahmed SHAHIDKHEL","Arefullah Aref GHAZI MOHAMMAD","Arefullah
+        AREF","Mohammad AHMADI","Abdul Rahman ZAHED","Abdul Rehman ZAHID","Abdul Jalil
+        Haqqani WALI MOHAMMAD","Abdul Jalil AKHUND","Akhter MOHMAD (SON OF NOOR MOHMAD)","Haji
+        Gulab GUL (SON OF HAJI HAZRAT GUL)","Nazar JAN","Abdul Jalil HAQQANI","FAIZ","Abdul
+        Baqi Basir AWAL SHAH","Abdul BAQI","Abdul Baqi HAQQANI","Mohammad Jawad Jawaz
+        WAZIRI","Jalaluddin HAQQANI","Jalaluddin HAQANI","Jallalouddin HAQQANI","Jallalouddine
+        HAQANI","Mohammad Ibrahim OMARI","Ibrahim HAQQANI","Din Mohammad HANIF","Qari
+        Din MOHAMMAD","Iadena MOHAMMAD","Iadenamohammad Nazri MOHAMMAD","Hamdullah
+        NOMANI","Qudratullah JAMAL","Hali SAHIB","Abdul Rahman Ahmad HOTTAK","Sahib
+        HOTTAK","Abdulhai MOTMAEN","Abdul HAQ (SON OF M.ANSWAR KHAN)","MOHAMMAD YAQOUB","Sayed
+        Mohammad Azim AGHA","Agha SAHEB","Nooruddin Turabi Muhammad QASIM","Noor Ud
+        Din TURABI","Haji KARIM","Mullah Noordin TORABI","Mohammad Essa AKHUND","Mohammad
+        Eisa SANI","Mohammad Azam ELMI","Muhammad AZAMI","Ezatullah Haqqani KHAN SAYYID","Ezatullah
+        HAQQANI","Mohammad Abbas AKHUND","Sher Mohammad Abbas Stanekzai PADSHAH KHAN","Mohammadullah
+        MATI","Mawlawi NANAI","Rustum Hanafi HABIBULLAH","Rostam NURISTANI","Hanafi
+        SAHIB","Atiqullah WALI MOHAMMAD","ATIQULLAH","Najibullah Haqqani HIDAYATULLAH","Najibullah
+        HAQANI","Najeebullah HAYAT","Sayyed Ghiassouddine AGHA","Sayed GHIAS","Sayed
+        Ghiasuddin Sayed GHOUSUDDIN","Sayyed GHAYASUDIN","Mohammad Moslim Haqqani
+        MUHAMMADI GUL","Moslim HAQQANI","Abdul Raqib TAKHARI","Mohammad Wali MOHAMMAD
+        EWAZ","Mohammad WALI","Mohammad Salim HAQQANI","Abdul-Haq WASSIQ","Abdul-Haq
+        WASSEQ","Abdul Haq WASIQ","Abdulhaq WASSEQ","Ehsanullah Sarfida Hesamuddin
+        AKHUNDZADA","Ehsanullah SARFIDA","Ehsanullah SARFADI","Habibullah RESHAD","Ahmed
+        Jan Akhundzada WAZIR","Haji Ahmad JAN","Ahmed Jan AKHUND","Saduddin SAYYED","Sadudin
+        SAYED","SADRUDDIN","Abdul Jabbar OMARI","Mullah JABBAR","Muawin JABBAR","Nurullah
+        NURI","Norullah NOORI","Janan AGHA","Abdullah Jan AGHA","DOST MOHAMMAD","Doost
+        MOHAMMAD","Khairullah KHAIRKHWAH","Mullah Khairullah KHAIRKHWAH","Khirullah
+        Said Wali KHAIRKHWA","Khirullah KHAIRKHWA","Abdul Bari AKHUND","Haji Mullah
+        SAHIB","ZAKIR","WALIJAN","Mohammad Hasan RAHMANI","Gud Mullah Mohammad HASSAN","Abdul
+        Manan NYAZI","Abdul Manan NAYAZI","Abdul Manan NIAZI","BARYALY","BARYALAI","Abdul
+        Wahed SHAFIQ","Mohammad Shafiq MOHAMMADI","Nazir Mohammad ABDUL BASIR","Nazar
+        MOHAMMAD","Mohammad Eshaq AKHUNDZADA","Mohammad Ishaq AKHUND","Zia-ur-Rahman
+        MADANI","Ziaurrahman MADANI","Zala u Rahman MADANI","Madani SAHEB","Diya''
+        al-Rahman MADANI","SHAMSUDDIN","Pahlawan SHAMSUDDIN","Mohammed Rasul AYYUB","GURG","Ahmad
+        Taha Khalid ABDUL QADIR","Mohammad Shafiqullah Ahmadi FATIH KHAN","Mohammad
+        Shafiq AHMADI","Mullah SHAFIQULLAH","Aminullah Amin QUDDIS","Aminullah AMIN","Muhammad
+        YUSUF","Abdulhai SALEK","Ahmad Jan Akhundzada Shukoor AKHUNDZADA","Ahmad Jan
+        AKHUNDZADA","Ahmad Jan AKHUND ZADA","Noor Mohammad SAQIB","Noor Mohammed SAQEB","Shahabuddin
+        DELAWAR","Abdul Rahman AGHA","Sayed Esmatullah Asem ABDUL QUDDUS","Sayed Esmatullah
+        ASEM","Asmatullah ASEM","Esmatullah ASEM","Hamidullah Akhund SHER MOHAMMAD","Janat
+        GUL","Hamidullah AKHUND","Abdul Satar ABDULLAH","Jan Mohammad Madani IKRAM","Azizirahman
+        ABDUL AHAD","Azizirahman Abdul AHAD","Abdul Manan MOHAMMAD ISHAK","Mohammad
+        Sarwar Siddiqmal MOHAMMAD MASOOD","Mohammad Sarwar SIDDIQMAL","Mohammad ZAHID","Jan
+        Agha AHMADZAI","Zahid AHMADZAI","Abdul Qadeer Basir ABDUL BASEER","Abdul Qadir
+        BASIR","Abdul QADIR","Abdul Qadir HAQQANI","Ahmad HAJI","Nazirullah Hanafi
+        WALIULLAH","Nazirullah Aanafi WALIULLAH","Abdul Ghafar Qurishi ABDUL GHANI","Abdul
+        Ghaffar QURESHI","Najibullah MUHAMMAD JUMA","Najib ULLAH","Abdul Wali SEDDIQI","Mohammad
+        Sadiq AMIR MOHAMMAD","Rahmatullah KAKAZADA","REHMATULLAH","KAKAZADA","Mullah
+        NASIR","Mohammad Aleem NOORANI","Abdul Ghafar SHINWARI","Gul Ahmad HAKIMI","Abdullah
+        Hamad MOHAMMAD KARIM","AL-HAMMAD","Abdul Hai Hazem ABDUL QADER","Abdul Hai
+        HAZEM","Hamdullah SUNANI","SANANI","Abdullah Ahmed Abdullah EL ALFI","Tariq
+        Anwar El Sayed AHMED","Hamdi Ahmad FARAG","Amr Al-Fatih FATHI","Tarek Anwar
+        El Sayed AHMAD","ABDUL MANAN AGHA","Abdul Man''am SAIYID","Saiyid ABD AL-MAN","Khalid
+        Abd Al-Rahman Hamd AL-FAWAZ","Khaled AL-FAUWAZ","Khaled A. AL-FAUWAZ","Khalid
+        AL-FAWWAZ","Khalik AL FAWWAZ","Khaled AL -FAWWAZ","Khaled AL FAWWAZ","Khalid
+        Abdulrahman H. AL FAWAZ","Abu-Khalil AL-FAWAZ","Mohammad Hamdi Sadiq AL-AHDAL","Muhammad
+        AL-HAMATI","Muhammad Muhammad Abdullah AL-AHDAL","Mohamed Mohamed Abdullah
+        AL-AHDAL","Amin Muhammad Ul Haq SAAM KHAN","Amin AL-HAQ","Muhammad AMIN","Dr.
+        AMIN","Dr. Amin UL-HAQ","Nashwan Abd Al-Razzaq ABD AL-BAQI","Abdal Al-Hadi
+        AL-IRAQI","Abd Al-Hadi AL-IRAQI","Abu ABDALLAH","Omar Uthman MOHAMMED","Abdul
+        Hadi Arif ALI","Abdul Hadi AL-TAWEEL","Abd al-Hadi AL-ANSARI","Abd AL-MUHAYMAN","Abu
+        AYUB","Salim Ahmad Salim HAMDAN","Saqr AL-JADDAWI","Saqar AL JADAWI","Saqar
+        ALJAWADI","Salem Ahmed Salem HAMDAN","Ibrahim Ali Abu Bakr TANTOUSH","Abd
+        AL-MUHSIN","Ibrahim Ali Muhammad ABU BAKR","Rahman ABDUL","Abu ANAS","Ibrahim
+        Abubaker TANTOUCHE","Ibrahim Abubaker TANTOUSH","ABD AL-MUHSI","ABD AL-RAHMAN","Abdel
+        Ilah SABRI","AL-LIBI","Mostafa Kamel Mostafa IBRAHIM","Mustafa Kamel MUSTAFA","Adam
+        Ramsey EAMAN","Kamel Mustapha MUSTAPHA","Mustapha Kamel MUSTAPHA","Abu HAMZA","Mostafa
+        Kamel MOSTAFA","Abu Hamza AL-MASRI","Abu Hamza AL-MISRI","Mahfouz Ould AL-WALID","The
+        Mauritanian ABU HAFS","Khalid AL-SHANQITI","Mafouz Walad AL-WALID","Mahamedou
+        Ouid SLAHI","Aiman Muhammed Rabi AL-ZAWAHIRI","Ayman AL-ZAWAHARI","Ahmed Fuad
+        SALIM","Al Zawahry Aiman Mohamed Rabi Abdel MUAZ","Al Zawahiri AYMAN","Abdul
+        Qader Abdullah Aziz Abdul Moez AL DOCTOR","Al Zawahry Aiman Mohamed RABI","Al
+        Zawahry Aiman Mohamed RABIE","Al Zawahry Aiman Mohamed ROBI","Dhawahri AYMAN","Eddaouahiri
+        AYMAN","Nur Al Deen Abu MOHAMMED","Ayman AL ZAWAHARI","Ahmad Fuad SALIM","Abu
+        FATMA","Abu MOHAMMED","Mohamed Ben Belgacem Ben Abdallah AL-AOUADI","Ben Belkacem
+        Aouadi MOHAMED","Fathi HANNACHI","Hassan Dahir AWEYS","Sheikh Hassan Dahir
+        Aweys ALI","Shaykh Hassan Dahir AWES","Hassen Dahir AWEYES","Ahmed Dahir AWEYS","Mohammed
+        Hassan IBRAHIM","Aweys Hassan DAHIR","Hassan Tahir OAIS","Hassan Tahir UWAYS","Hassan
+        Dahir AWES","Sheikh AWYES","Sheikh HASSAN","Sheikh Hassan Dahir AWEYS","Said
+        BAHAJI","Zouhier AL MAGHRIBI","Mohamed ABBATTAY","Abderrahmane AL MAGHRIBI","Adel
+        Ben Al-Azhar Ben Youssef HAMDI","Adel Ben Al-Azhar Ben Youssef BEN SOLTANE","Bilal
+        BIN MARWAN","Ramzi Mohamed Abdullah BINALSHIBH","Ramzi Mohamed Abdullah BINALSHEIDAH","Ramzi
+        BIN AL SHIBH","Ramzi Mohamed Abdellah OMAR","Mohamed Ali Abdullah BAWAZIR","Binalshibh
+        Ramzi Mohammed ABDULLAH","Ramzi BIN AL SHIBH","Ramzi Mohamed Abdellah Omar
+        Hassan ALASSIRI","Binalshibh Ramzi Mohamed ABDULLAH","Abu UBAYDAH","Umar Muhammad''
+        Abdallah Ba'' AMAR","Ramzi OMAR","Mounir EL MOTASSADEQ","Mounir EL MOUTASSADEQ","Zakarya
+        ESSABAR","Zakariya ESSABAR","Abd El Kader Mahmoud Mohamed EL SAYED","Kader
+        ES SAYED","Abdel Khader Mahmoud Mohamed EL SAYED","Sami Ben Khamis Ben Saleh
+        ELSSEID","Omar EL MOUHAJER","SABER","Ahmed Khalfan GHAILANI","Abu Bakr AHMAD","Abubakar
+        AHMED","Abubakar K. AHMED","Abubakar Khalfan AHMED","Abubakary K. AHMED","Ahmed
+        Khalfan AHMED","Ahmed Khalfan ALI","Abubakary Khalfan Ahmed GHAILANI","Ahmed
+        GHAILANI","Ahmad Khalafan GHILANI","Mahfudh Abubakar Ahmed Abdallah HUSSEIN","Ahmed
+        KHALFAN","Shariff Omar MOHAMMED","Haytham AL-KINI","AHMED THE TANZANIAN","FOOPIE","FUPI","A
+        AHMED","Ahmad AL TANZANI","Abu BAKR","Abu KHABAR","Raed Muhammad Hasan Muhammad
+        HIJAZI","Raed M. HIJAZI","Abu-Ahmad AL-HAWEN","Abu-Ahmad AL-SHAHID","Ri''ad
+        Muhammad Hasan Muhammad HIJAZI","Rashid (The Moroccan) AL-MAGHRIBI","Abu-Ahmad
+        (The American) AL-AMRIKI","Mehdi Ben Mohamed Ben Mohamed KAMMOUN","SALMANE","Tarek
+        Ben Habib Ben Al-Toumi AL-MAAROUFI","Abu ISMAIL","Abou Ismail EL JENDOUBI","Abou
+        Ismail AL DJOUNDOUBI","Mahmood Sultan BASHIR-UD-DIN","Sultan Bashiruddin MAHMOOD","Dr.
+        Bashir Uddin MEHMOOD","Sultan Baishiruddin MEKMUD","Majeed ABDUL CHAUDHRY","Abdul
+        MAJEED","Abdul MAJID","Majeed Chaudhry ABDUL","Abdelhalim Hafed Abdelfattah
+        REMADNA","Abdelhalim REMADNA","JALLOUL","Tharwat Salah SHIHATA","Tarwat Salah
+        ABDALLAH","Salah Shihata THIRWAT","Shahata THIRWAT","Tharwat Salah Shihata
+        ALI","Isam Ali Mohamed ALOUCHE","Mansour THAER","Abdul Rahman YASIN","Abdul
+        Rahman S. TAHA","Abdul Rahman S. TAHER","Abdul Rahman Said YASIN","Aboud YASIN"],"date_of_birth":"1955-1958
+        (Pashmul Village); 1945-1950; 1963 (Approx); 26328; 1961; 1965 (Approx); 1968
+        (Approx); 24788; 1969; 1953 (Approx); 1960 (Approx); 1966; 1975 Approx; 1958
+        (Approx); 1957 Approx; 1973 (Approx); 1963-1968; 26230; 23283; 1958-1963;
+        1970 approx; 1958-1964; 1968 (approx); 25927; 1971; 01\/01\/1969; 1975 (Approx);
+        1959 (Approx); 1965; 1969 (Approx); 1960-1962; 01\/01\/1967; Approx 1960;
+        1942 or 1948; 1943 or 1948; 1955 (Approx); 01\/01\/1964; 1957 (Approx); 1966
+        approx; 1966 (Approx); 1956 (Approx); 30\/07\/1969; 22\/02\/1957; 1961 (Approx);
+        1962 (Approx); 24\/10\/1972; Between 1968 and 1973; 1966 -1967; 20\/09\/1968;
+        1962-1963; 1968-1973; 1953-1958; 25358; 1948 (Approx); 1954; 1963; Approximately
+        1960; Approximately 1968; 1956-1957; 1966-1967 (Approx); 18\/09\/1963; 1957;
+        1953; 1967 (Approx); Uruzgan; Afghanistan; 1972-1973; 22\/03\/1973; 1954-1955;
+        1972; 23\/05\/1971; 1940-1941; 1964; 1962; 1970; 1967; 1958; 1974; 1934; 1968;
+        Approx 1963; 23830; 1923 (Approx); 23168; 23085; 22882; 26256; 1960; 21290;
+        27395; 18798; 27374; 1935; 27590; 25763; 21031; 21029; 20889; 20821; 1956;
+        26420; 26923; 27122; 28228; 23006; 24878; 27102; 27132; 27133; 25781; 25202;
+        24931; 24069; 1937; 1938; 1939; 1940; 1941; 1942; 1943; 14350; 24199; 22096;
+        27109; 22016","place_of_birth":"Pashmul Village","citizenship":"AF, EG, SA,
+        YE, IQ, LY, GB, MR, TN, DE, MA, TZ, JO, PK, DZ","listing_information":"UN
+        Security Council Resolution","committees":null,"sanctions":{"targeted_financial_sanction":true,"travel_ban":true,"arms_embargo":false,"maritime_restriction":false},"confidence":0.788,"source_updated_at":"2026-04-21
+        00:00:00"},{"source":"un","reference":"110577","name":"MOHAMMAD HASSAN AKHUND","type":"Individual","aliases":[],"date_of_birth":"1955-1958
+        (Pashmul village, Panjwai District); 1945-1950","place_of_birth":"Pashmul
+        village, Panjwai District","citizenship":"AF","listing_information":"Taliban","committees":"Taliban","sanctions":{"targeted_financial_sanction":true,"travel_ban":true,"arms_embargo":false,"maritime_restriction":false},"confidence":0.788,"source_updated_at":"2026-09-04
+        00:00:00"},{"source":"eu","reference":"603","name":"Mohammad Hassan Akhund","type":"Individual","aliases":[],"date_of_birth":"circa
+        1945-1950 (Pashmul village); circa 1955-1958 (Pashmul village)","place_of_birth":"Pashmul
+        village","citizenship":"AF","listing_information":"AFG","committees":"AFG","sanctions":{"targeted_financial_sanction":true,"travel_ban":false,"arms_embargo":false,"maritime_restriction":false},"confidence":0.788,"source_updated_at":"2026-08-05
+        00:00:00"},{"source":"nz","reference":"NZI-2","name":"Mohammad Hassan AKHUND","type":"Individual","aliases":[],"date_of_birth":"1955-1958
+        (Pashmul Village); 1945-1950","place_of_birth":"Pashmul Village","citizenship":null,"listing_information":"UN
+        Security Council Resolution","committees":null,"sanctions":{"targeted_financial_sanction":true,"travel_ban":true,"arms_embargo":false,"maritime_restriction":false},"confidence":0.698,"source_updated_at":"2026-06-15
+        00:00:00"},{"source":"eu","reference":"126538","name":"\u062d\u0633\u0646
+        \u0642\u0637\u0627\u0646\u0629","type":"Individual","aliases":["Mohammad Hassan
+        QATANA"],"date_of_birth":null,"place_of_birth":null,"citizenship":null,"listing_information":"SYR","committees":"SYR","sanctions":{"targeted_financial_sanction":true,"travel_ban":false,"arms_embargo":false,"maritime_restriction":false},"confidence":0.696,"source_updated_at":"2026-08-05
+        00:00:00"},{"source":"ofac","reference":"28660","name":"TOULAI, Mohammad Hassan","type":"Individual","aliases":["TAVALLAEI,
+        Mohammad Hasan","TOULAI, Mohammadhassan"],"date_of_birth":"21 Mar 1950 to
+        20 Mar 1951","place_of_birth":null,"citizenship":"IR","listing_information":"IRAN-EO13846","committees":"IRAN-EO13846","sanctions":{"targeted_financial_sanction":true,"travel_ban":false,"arms_embargo":false,"maritime_restriction":false},"confidence":0.488,"source_updated_at":"2026-09-04
+        00:00:00"}]}'
+  recorded_at: Sat, 05 Sep 2026 01:54:04 GMT
+recorded_with: VCR 6.4.0
